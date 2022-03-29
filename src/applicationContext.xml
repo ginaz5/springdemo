@@ -25,6 +25,10 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <!--set up setter injection-->
         <property name="fortuneService" ref="myFortune"/>
 
+        <!--inject literal values-->
+        <property name="emailAddress" value="test@gmail.com"/>
+        <property name="team" value="Sunrisers Hyderabad"/>
+
     </bean>
 
 </beans>
