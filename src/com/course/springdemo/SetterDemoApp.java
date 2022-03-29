@@ -21,6 +21,10 @@ public class SetterDemoApp {
         System.out.println(theCoach.getEmailAddress());
         System.out.println(theCoach.getTeam());
 
+        // practice activity get random fortune
+        RunnerCoach myCoach = context.getBean("myRunnerCoach", RunnerCoach.class);
+        System.out.println(myCoach.getDailyFortune());
+
         // close context
         context.close();
 

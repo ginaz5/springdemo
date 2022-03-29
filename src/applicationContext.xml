@@ -12,13 +12,13 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
     <!-- define the dependency -->
     <bean id="myFortune"
           class="com.course.springdemo.HappyFortuneService">
-
     </bean>
+
     <!-- Define beans. id is like alias, class classname of implementation class-->
     <bean id="myCoach"
           class="com.course.springdemo.TrackCoach">
 
-          <!--set up constuctor injection-->
+          <!--set up constructor injection-->
           <constructor-arg ref="myFortune"/>
     </bean>
 
@@ -32,6 +32,19 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <property name="emailAddress" value="${foo.email}"/>
         <property name="team" value="${foo.team}"/>
 
+    </bean>
+
+    <bean id="myRandomFortune"
+           class="com.course.springdemo.MyFortuneService">
+    </bean>
+    <bean id="myRunnerCoach"
+          class="com.course.springdemo.RunnerCoach">
+
+        <!-- solution - this will inject constructor in myRunnerCoach class -->
+        <constructor-arg ref="myRandomFortune"/>
+
+        <!-- My implementation - this will inject setter method in myRunnerCoach class -->
+        <property name="fortuneService" ref="myRandomFortune"/>
     </bean>
 
 </beans>
