@@ -15,12 +15,23 @@ public class RunnerCoach implements Coach {
     }
 
     // original implementation with setter
-    public void setFortuneService(MyFortuneService fortuneService) {
+    public void setFortuneService(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
 
     // solution - use constructor
-    public RunnerCoach(MyFortuneService fortuneService) {
+    public RunnerCoach(FortuneService fortuneService) {
         this.fortuneService = fortuneService;
     }
+
+    // custom hook init and destroy
+    public void doMyStartupStuff() {
+        System.out.println("Runner Coach: inside method doMyStartStuff");
+    }
+
+    // custom hook init and destroy
+    public void doMyCleanStuffYoYo() {
+        System.out.println("Runner Coach: inside method doMyCleanStuffYoYo");
+    }
+
 }

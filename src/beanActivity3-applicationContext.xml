@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- define the dependency -->
+    <bean id="myRandomFortune"
+          class="com.course.springdemo.HappyFortuneService">
+    </bean>
+
+    <!-- Define beans. id is like alias, class classname of implementation class
+         scope default is singleton, prototype will new object for each request
+         singleton -> use same memory location
+         prototype -> different  -->
+    <bean id="myRunnerCoach"
+          class="com.course.springdemo.RunnerCoach"
+          scope="prototype">
+
+          <!--set up constructor injection-->
+          <constructor-arg ref="myRandomFortune"/>
+    </bean>
+
+</beans>
